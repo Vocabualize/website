@@ -30,28 +30,80 @@
         }
 
         .container {
+            margin: 128px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: #FFFFFF;
         }
 
         .title {
             font-family: "poppinsBold", sans-serif;
             font-size: 2rem;
-            margin-top: 32px;
         }
 
         .subtitle {
             font-family: "poppinsRegular", sans-serif;
             font-size: 1.18rem;
-            margin-top: 12px;
+            margin-top: 8px;
+        }
+
+        #mascot {
+            margin-top: 32px;
+        }
+
+        .icon-button {
+            margin-top: 48px;
+            display: flex;
+            gap: 12px;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-radius: 16px;
+            background-color: #FFFFFF;
+            color: #000000;
+            width: fit-content;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        .label {
+            font-family: "poppinsRegular", sans-serif;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                height: 90vh;
+            }
+            .container {
+              margin-left: 0px;
+               margin-right: 0px;
+               margin-top: 128px;
+                margin-bottom: 128px;
+                height: 100%;
+            }
+            #mascot {
+                height:max-content;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="assets/mascot_search.png" width="320px">
         <h1 class="title">Vocabualize</h1>
         <p class="subtitle">Coming soon!</p>
-    </div>    
+        <img id="mascot" src="assets/mascot_search.png" width="320px">
+        <a class="icon-button" href="https://github.com/vocabualize/vocabualize" target="_blank">
+            <img src="assets/ic_github.svg" alt="" width="24px">
+            <p class="label">Code on GitHub</p>
+        </a>    
+    </div>
 </body>
 </html>
