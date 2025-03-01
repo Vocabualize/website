@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocabualize</title>
-    <link rel="icon" type="image/x-icon" href="/assets/icon_rounded_small.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <style>
         @font-face {
             font-family: poppinsBold;
@@ -15,7 +16,7 @@
             font-family: poppinsRegular;
             src: url("fonts/poppins_regular.ttf");
         }
-        
+
         * {
             margin: 0px;
             padding: 0px;
@@ -23,9 +24,11 @@
 
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 90vh;
+            height: 100vh;
+            margin: 0px;
             background-color: #22A2FF;
         }
 
@@ -52,6 +55,11 @@
 
         #mascot {
             margin-top: 32px;
+            flex: 1;
+            min-height: 10vh;
+            max-height: 40vh;
+            overflow: auto;
+            width: auto;
         }
 
         .icon-button {
@@ -86,32 +94,33 @@
             font-size: 0.9rem;
         }
 
+        .fixed-size {
+            flex-shrink: 0;
+        }
+
         @media (max-width: 768px) {
-            body {
-                height: 90vh;
-            }
             .container {
-              margin-left: 0px;
-               margin-right: 0px;
-               margin-top: 128px;
+                margin-left: 0px;
+                margin-right: 0px;
+                margin-top: 128px;
                 margin-bottom: 128px;
                 height: 100%;
-            }
-            #mascot {
-                height:max-content;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1 class="title">Vocabualize</h1>
-        <p class="subtitle">Coming soon!</p>
+        <h1 class="title fixed-size">Vocabualize</h1>
+        <p class="subtitle fixed-size">Coming soon!</p>
         <img id="mascot" src="assets/mascot_search.png" width="320px">
-        <a class="icon-button" href="https://github.com/vocabualize/vocabualize" target="_blank">
+        <a class="icon-button fixed-size" href="https://github.com/vocabualize/vocabualize" target="_blank">
             <img src="assets/ic_github.svg" alt="" width="24px">
             <p class="label">Code on GitHub</p>
         </a>
+        <div style="height: 32px;"></div>
     </div>
 </body>
+
 </html>
