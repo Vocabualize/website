@@ -17,6 +17,16 @@
             src: url("fonts/poppins_regular.ttf");
         }
 
+        .body-text {
+            font-family: "poppinsRegular", sans-serif;
+            font-size: 1.25rem;
+        }
+
+        .body-text-bold {
+            font-family: "poppinsBold", sans-serif;
+            font-size: 1.25rem;
+        }
+
         * {
             margin: 0px;
             padding: 0px;
@@ -25,11 +35,9 @@
         body {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
             margin: 0px;
-            background-color: #22A2FF;
+            background-color: #032137;
         }
 
         .container {
@@ -37,9 +45,35 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            margin: 128px;
+            width: 90%;
+            max-width: 1600px;
+            margin: 2rem;
+            gap: 24px;
             color: #FFFFFF;
+        }
+
+        .row-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .title-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
         }
 
         .title {
@@ -62,12 +96,56 @@
             max-height: 40vh;
         }
 
+        .qr {
+            width: 12rem;
+            width: 12rem;
+            border-radius: 20px;
+        }
+
+        .surface {
+            display: flex;
+            flex-direction: column;
+            padding: 32px;
+            border-radius: 20px;
+            gap: 4px;
+            background-color: #034473;
+        }
+
+        .qr-surface {
+            padding: 16px;
+            justify-content: start;
+            align-items: center;
+            background-color: #0C79C8;
+        }
+
+        .description-surface {
+            padding: 32px;
+            max-width: 40rem;
+            background-color: #0C79C8;
+        }
+
+        .surface p {
+            text-align: start;
+        }
+
+        .horizontal-filler-surface {
+            flex: 1;
+            border-radius: 20px;
+            background-color: #034473;
+        }
+
+        .preview-image {
+            width: 100%;
+            height: auto;
+        }
+
         .icon-button {
             display: flex;
+            flex-direction: row;
             width: fit-content;
             justify-content: center;
             align-items: center;
-            margin-top: 48px;
+            margin-top: 8px;
             gap: 12px;
             padding-left: 16px;
             padding-right: 16px;
@@ -89,6 +167,23 @@
             background-color: #B5E0FF;
         }
 
+        .secondary {
+            color: #FFFFFF;
+            background: transparent;
+        }
+
+        .secondary > img {
+            filter: brightness(0) invert(1);
+        }
+
+        .secondary:hover > img, .secondary:active > img {
+            filter: invert(0);
+        }
+
+        .secondary:hover, .secondary:active {
+            color: #000000;
+        }
+
         .label {
             font-family: "poppinsRegular", sans-serif;
             font-size: 0.9rem;
@@ -98,12 +193,43 @@
             flex-shrink: 0;
         }
 
-        @media (max-width: 768px) {
+        .mobile {
+            visibility: collapse;
+            display: none;
+        }
+        .desktop {
+            visibility: visible;
+        }
+
+        @media (max-width: 1080px) {
+            .horizontal-filler-surface {
+                display: none;
+            }
+            .container {
+                margin-left: 64px;
+                margin-right: 64px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                height: 90vh;
+                background-color: #22A2FF;
+            }
+            .mobile {
+                visibility: visible;
+                display: inherit;
+            }
+            .desktop {
+                visibility: collapse;
+                display: none;
+            }
             .container {
                 height: 100%;
+                gap: 0px;
                 margin-left: 0px;
                 margin-right: 0px;
-                margin-top: 128px;
+                margin-top: 4rem;
                 margin-bottom: 128px;
             }
         }
@@ -111,13 +237,45 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="title fixed-size">Vocabualize</h1>
-        <p class="subtitle fixed-size">Coming soon!</p>
+    <div class="desktop container">
+        <div class="header-container">
+            <div class="title-container">
+                <img src="assets/logo.svg" alt="" width="48px">
+                <p class="title">Vocabualize</p>
+            </div>
+            <a class="icon-button secondary fixed-size" href="https://github.com/vocabualize/vocabualize" target="_blank">
+                <img src="assets/ic_github.svg" alt="" width="24px">
+                <p class="label">Code on GitHub</p>
+            </a>
+            </div>
+        <div class="surface">
+            <img class="preview-image" src="assets/app_preview.png">
+        </div>
+        <div class="row-container">
+            <div class="surface description-surface">
+                <p class="body-text-bold">Discover, translate, and remember — without the hassle!</p>
+                <p class="body-text">Gather words from your daily life with our camera-powered translation, and reinforce your learning with techniques that make vocabulary stick. It has never been so easy to learn new words you actually need! (I hope)</p>
+            </div>
+            <div class="horizontal-filler-surface"></div>
+            <div class="surface qr-surface">
+                <img class="qr" src="assets/qr_test_version.png">
+                <div style="height: 8px;"></div>
+                <p class="body-text">Get alpha version</p>
+            </div>
+        </div>
+        <div style="height: 32px;"></div>
+    </div>
+    <div class="mobile container">
+        <p class="title">Vocabualize</p>
+        <p class="subtitle">Coming soon!</p>
         <img id="mascot" src="assets/mascot_search.png" width="320px">
-        <a class="icon-button fixed-size" href="https://github.com/vocabualize/vocabualize" target="_blank">
+        <div style="height: 32px;"></div>
+        <a class="icon-button fixed-size" href="https://appdistribution.firebase.dev/i/e128554f813aee01" target="_blank">
+            <p class="label">Get closed alpha version</p>
+        </a>
+        <a class="icon-button secondary fixed-size" href="https://github.com/vocabualize/vocabualize" target="_blank">
             <img src="assets/ic_github.svg" alt="" width="24px">
-            <p class="label">Code on GitHub</p>
+            <p class="label">Open source</p>
         </a>
         <div style="height: 32px;"></div>
     </div>
